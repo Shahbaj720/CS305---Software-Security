@@ -55,13 +55,6 @@ This project demonstrates my ability to analyze software for vulnerabilities, ap
 
 ---
 
-## Repository Contents
-
-* Artemis Financial Vulnerability Assessment or Secure Software Report
-* README.md (Project reflection and responses)
-
----
-
 ## Submission Link
 https://github.com/Shahbaj720/CS305---Software-Security
 
