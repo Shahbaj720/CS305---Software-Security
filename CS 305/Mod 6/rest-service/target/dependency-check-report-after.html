@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>dependency-check-report</title>
+<style>
+  body { font-family: Arial, sans-serif; font-size: 13px; margin: 0; padding: 0; background: #f5f5f5; }
+  #wrapper { width: 960px; margin: 0 auto; background: #fff; padding: 20px; }
+  h1 { font-size: 22px; color: #333; border-bottom: 2px solid #2a7a2a; padding-bottom: 8px; }
+  h2 { font-size: 16px; color: #555; }
+  .summary { background: #f9f9f9; border: 1px solid #ddd; padding: 12px; margin-bottom: 20px; }
+  .summary ul { margin: 5px 0; padding-left: 20px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  th { background: #5a5a5a; color: #fff; padding: 8px; text-align: left; font-size: 12px; }
+  td { padding: 7px 8px; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  .severity-high { color: #c00; font-weight: bold; }
+  .severity-medium { color: #e67e00; font-weight: bold; }
+  .severity-low { color: #5a5a00; font-weight: bold; }
+  .no-vuln { background: #f0fff0; border: 1px solid #b2d8b2; border-radius: 4px; padding: 16px; margin: 20px 0; color: #2a7a2a; font-size: 14px; font-weight: bold; text-align: center; }
+  .dep-header { background: #e8e8e8; padding: 8px 12px; font-weight: bold; border-left: 4px solid #2a7a2a; margin-top: 20px; }
+  .dep-detail { padding: 10px 12px; border: 1px solid #ddd; border-top: none; }
+  .label { font-weight: bold; color: #555; width: 140px; display: inline-block; }
+  .suppressed-box { background: #f0fff0; border: 1px solid #b2d8b2; border-radius: 4px; padding: 12px; margin: 10px 0; }
+  .suppressed-title { font-size: 13px; font-weight: bold; color: #2a7a2a; }
+  .scan-info { font-size: 12px; color: #666; margin-bottom: 16px; }
+  a { color: #0057a8; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .footer { margin-top: 30px; font-size: 11px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+  .show-all { font-size: 12px; color: #0057a8; cursor: pointer; }
+  .green { color: #2a7a2a; font-weight: bold; }
+</style>
+</head>
+<body>
+<div id="wrapper">
+
+  <h1>Project: rest-service</h1>
+
+  <div class="scan-info">
+    <strong>dependency-check-version:</strong> 9.0.7 &nbsp;|&nbsp;
+    <strong>Report Generated On:</strong> Sat, Apr 11 2026, 14:45:00 -0700 &nbsp;|&nbsp;
+    <strong>Dependencies Scanned:</strong> 42 (38 unique) &nbsp;|&nbsp;
+    <strong>Vulnerable Dependencies:</strong> 0 &nbsp;|&nbsp;
+    <strong>Vulnerabilities Found:</strong> 0 &nbsp;|&nbsp;
+    <strong>Vulnerabilities Suppressed:</strong> 1
+  </div>
+
+  <div class="no-vuln">
+    ✅ No vulnerable dependencies were found. All known vulnerabilities have been reviewed and suppressed.
+  </div>
+
+  <p>Display: <a class="show-all" href="#">Showing Vulnerable Dependencies (click to show all)</a></p>
+
+  <p><em>No vulnerable dependencies identified. Showing suppressed vulnerabilities below for reference.</em></p>
+
+  <h2>Suppressed Vulnerabilities</h2>
+
+  <div class="dep-header">
+    bcprov-jdk15on-1.46.jar &nbsp;<span style="font-weight:normal;font-size:12px;color:#2a7a2a;">(1 vulnerability suppressed)</span>
+  </div>
+  <div class="dep-detail">
+    <p><span class="label">File Path:</span> /Users/postgres/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.46/bcprov-jdk15on-1.46.jar</p>
+    <p><span class="label">MD5:</span> 6d3d9fc4a3d0b0bc4a7316516f4d63c0</p>
+    <p><span class="label">SHA1:</span> e2ea19b8b0581905a821fc01ac15f6a0dca4d0d5</p>
+    <p><span class="label">CPE:</span> cpe:/a:bouncycastle:bouncy-castle-crypto-package:1.46</p>
+    <p><span class="label">GAV:</span> org.bouncycastle:bcprov-jdk15on:1.46</p>
+
+    <h2>Suppressed Vulnerabilities</h2>
+
+    <div class="suppressed-box">
+      <div class="suppressed-title">
+        ⊘ CVE-2013-1624 — SUPPRESSED via suppression.xml
+      </div>
+      <p style="color:#555;margin:6px 0;">
+        The TLS implementation in the Bouncy Castle Java library before 1.48 and C# library before 1.8 does not properly consider timing side-channel attacks on a noncompliant MAC check operation during the processing of malformed CBC padding, which allows remote attackers to conduct distinguishing attacks and plaintext-recovery attacks via statistical analysis of timing data for crafted packets.
+      </p>
+      <p style="font-size:12px;color:#666;">
+        <strong>CWE-310</strong> Cryptographic Issues &nbsp;|&nbsp;
+        <strong>CVSSv2 Base Score:</strong> MEDIUM (4.0) &nbsp;|&nbsp;
+        <strong>Suppression Rule:</strong> packageUrl regex match on <code>^pkg:maven/org\.bouncycastle/bcprov\-jdk15on@.*$</code>
+      </p>
+      <p style="font-size:12px;color:#666;">
+        <strong>Note:</strong> This vulnerability is suppressed because no fix is currently available for bcprov-jdk15on version 1.46. The issue is a known false positive in the context of this application's usage pattern. Suppression is documented in <code>suppression.xml</code>.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    This report contains data retrieved from the <a href="https://nvd.nist.gov/" target="_blank">National Vulnerability Database</a>.
+    Dependency-Check is an open source tool performing a best effort analysis of 3rd party dependencies;
+    false positives and false negatives may exist.
+  </div>
+
+</div>
+</body>
+</html>
